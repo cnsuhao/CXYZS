@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{a9b3b980-158b-43b0-b984-bba84092ae64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Define">
+      <UniqueIdentifier>{aff54bef-85b2-423d-8cd5-445d3eecd209}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Net">
+      <UniqueIdentifier>{e5089466-b7ce-4fa3-bf1a-6f0e4f1ec7ad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Tool\CSVParser.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\INIParser.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\LogManage.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\LogCatcher.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\Vec2.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\StackStream.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\FilteWord.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\TimerManage.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool\CMySql.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tool\CSVParser.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\INIParser.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Define\ServerDef.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\LogManage.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Define\MysqlDef.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\Vec2.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\StackStream.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Define\MsgDef.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="Define\MsgInfo.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="Define\GameDef.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\LogCatcher.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\FilteWord.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\TimerManage.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\CMySql.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

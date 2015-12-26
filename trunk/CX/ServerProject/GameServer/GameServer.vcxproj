@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{18826B18-43FB-4505-A35E-AAC8F6122CEF}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GameServer</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Bin\</OutDir>
+    <IntDir>$(SolutionDir)Temp\Debug\$(ProjectName)</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\Bin\</OutDir>
+    <IntDir>$(SolutionDir)\Temp\Release\$(ProjectName)</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;GAME_SERVER;MYSQLPP_NO_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;$(SolutionDir)RakNet;$(SolutionDir)Common;$(SolutionDir)Common/Define;$(SolutionDir)Common/Net;$(SolutionDir)Common/Tool;$(SolutionDir)Common/Logic;Logic</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;;RakNet_d.lib;Common_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;GAME_SERVER;MYSQLPP_NO_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;$(SolutionDir)RakNet;$(SolutionDir)Common;$(SolutionDir)Common/Define;$(SolutionDir)Common/Net;$(SolutionDir)Common/Tool;$(SolutionDir)Common/Logic;Logic</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;RakNet.lib;Common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\Logic\CSVFileManager.h" />
+    <ClInclude Include="GameServer.h" />
+    <ClInclude Include="Logic\AIComponent.h" />
+    <ClInclude Include="Logic\BattleComponent.h" />
+    <ClInclude Include="Logic\MoveComponent.h" />
+    <ClInclude Include="Logic\Object.h" />
+    <ClInclude Include="Logic\Skill.h" />
+    <ClInclude Include="Logic\BattleManager.h" />
+    <ClInclude Include="Logic\BattleModule.h" />
+    <ClInclude Include="Logic\Buff.h" />
+    <ClInclude Include="Logic\CopyManager.h" />
+    <ClInclude Include="Logic\Gang.h" />
+    <ClInclude Include="Logic\ItemManager.h" />
+    <ClInclude Include="Logic\Map.h" />
+    <ClInclude Include="Logic\MapManager.h" />
+    <ClInclude Include="Logic\Monster.h" />
+    <ClInclude Include="Logic\Player.h" />
+    <ClInclude Include="Logic\SkillTreeManager.h" />
+    <ClInclude Include="Logic\SocialManager.h" />
+    <ClInclude Include="Logic\TaskManager.h" />
+    <ClInclude Include="Logic\Team.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\Logic\CSVFileManager.cpp" />
+    <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="GameServer.cpp" />
+    <ClCompile Include="Logic\AIComponent.cpp" />
+    <ClCompile Include="Logic\BattleComponent.cpp" />
+    <ClCompile Include="Logic\MoveComponent.cpp" />
+    <ClCompile Include="Logic\Object.cpp" />
+    <ClCompile Include="Logic\Skill.cpp" />
+    <ClCompile Include="Logic\BattleManager.cpp" />
+    <ClCompile Include="Logic\BattleModule.cpp" />
+    <ClCompile Include="Logic\Buff.cpp" />
+    <ClCompile Include="Logic\CopyManager.cpp" />
+    <ClCompile Include="Logic\Gang.cpp" />
+    <ClCompile Include="Logic\ItemManager.cpp" />
+    <ClCompile Include="Logic\Map.cpp" />
+    <ClCompile Include="Logic\MapManager.cpp" />
+    <ClCompile Include="Logic\Monster.cpp" />
+    <ClCompile Include="Logic\Player.cpp" />
+    <ClCompile Include="Logic\SkillTreeManager.cpp" />
+    <ClCompile Include="Logic\SocialManager.cpp" />
+    <ClCompile Include="Logic\TaskManager.cpp" />
+    <ClCompile Include="Logic\Team.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,40 @@
+#
+# Makefile for src directory
+#
+
+include ../../Server/Make.public
+
+TARGET = libRakNet.a
+
+####################
+#  Subdirs define  #
+####################
+SRC_PATH = ./
+SUBDIRS = $(SRC_PATH)
+####################
+#  Objects define  #
+####################
+SRC_OBJS = BitStream.o CCRakNetSlidingWindow.o CCRakNetUDT.o CheckSum.o CloudClient.o CloudCommon.o CloudServer.o CommandParserInterface.o ConnectionGraph2.o ConsoleServer.o DataCompressor.o DirectoryDeltaTransfer.o DS_BytePool.o DS_ByteQueue.o DS_HuffmanEncodingTree.o DS_Table.o DynDNS.o EmailSender.o EncodeClassName.o EpochTimeToString.o FileList.o FileListTransfer.o FileOperations.o _FindFirst.o FormatString.o FullyConnectedMesh2.o Getche.o Gets.o GetTime.o gettimeofday.o GridSectorizer.o HTTPConnection.o IncrementalReadInterface.o Itoa.o LinuxStrings.o LocklessTypes.o LogCommandParser.o MessageFilter.o NatPunchthroughClient.o NatPunchthroughServer.o NatTypeDetectionClient.o NatTypeDetectionCommon.o NatTypeDetectionServer.o NetworkIDManager.o NetworkIDObject.o PacketConsoleLogger.o PacketFileLogger.o PacketizedTCP.o PacketLogger.o PacketOutputWindowLogger.o PluginInterface2.o Rackspace.o RakMemoryOverride.o RakNetCommandParser.o RakNetSocket.o RakNetStatistics.o RakNetTransport2.o RakNetTypes.o RakPeer.o RakSleep.o RakString.o RakThread.o RakWString.o Rand.o rdlmalloc.o ReadyEvent.o ReliabilityLayer.o ReplicaManager3.o Router2.o RPC4Plugin.o SecureHandshake.o SendToThread.o SHA1.o SignaledEvent.o SimpleMutex.o SocketLayer.o StatisticsHistory.o StringCompressor.o StringTable.o SuperFastHash.o TableSerializer.o TCPInterface.o TeamBalancer.o TeamManager.o TelnetTransport.o ThreadsafePacketLogger.o TwoWayAuthentication.o UDPForwarder.o UDPProxyClient.o UDPProxyCoordinator.o UDPProxyServer.o VariableDeltaSerializer.o VariableListDeltaTracker.o VariadicSQLParser.o VitaIncludes.o WSAStartupSingleton.o
+
+COMMON_OBJS = $(SRC_OBJS)
+
+all:subdirs $(TARGET)
+	mv $(TARGET) $(LIBDIR)
+
+subdirs:
+	@for i in $(SUBDIRS);do \
+	echo "===>$$i"; \
+	(cd $$i&&$(MAKE) -f $(MAKEFILE)) || exit 1; \
+	echo "<===$$i"; \
+done
+
+$(TARGET):$(COMMON_OBJS)
+	ar -cr $@ $^
+clean:
+	@for i in $(SUBDIRS); do \
+	echo    "===>$$i"; \
+	(cd $$i &&$(MAKE) clean -f $(MAKEFILE)) || exit 1;\
+	echo    "<===$$i"; \
+done
+	rm -f $(LIBDIR)/$(TARGET)
+
