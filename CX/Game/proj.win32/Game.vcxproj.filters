@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{3ab18141-6156-4da3-b674-53cdb3a754c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{feca0165-de4d-426c-ae9f-7652c512d2a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{22925744-f3bc-49ef-bce4-ab1b16e98d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Net">
+      <UniqueIdentifier>{478252cd-c200-4d1e-ab5e-7268895d2030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{a2b65d8a-d53b-4035-af4c-16efcd6bee81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Control">
+      <UniqueIdentifier>{06337aa0-cd12-4d37-a95c-d27df972341d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="effect">
+      <UniqueIdentifier>{596043f5-1f38-47d1-9162-212b01a1a1a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\Compoent">
+      <UniqueIdentifier>{f56f1f1c-be08-4ab8-ada5-da03e8e2de94}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Base\BaseFunction.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\NPC.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\LogicManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\ResManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\SceneManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\UIManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIMain.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIMsgBox.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\Hero.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\Player.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\Monster.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\TaskManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\AStar.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIFaBao.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIPlayerInfo.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIMenu.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIChat.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIAuction.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIBag.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIEmail.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIFriends.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIGongFa.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIGuild.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UISetting.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIShop.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UITask.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UITeam.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIUpgradeEquip.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\CtrlRichItem.cpp">
+      <Filter>UI\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\ChatSystem.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIMiniMap.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\NetManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\effect\SpriteWithFilter.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\effect\FilterBase.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\effect\LaserRayFilter.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effect\ArmatureExPhantom.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Base\ArmatureExtend.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UILogin.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIDefaultServer.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UICreateRole.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\HttpUpdate.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\VersionController.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\RequestServerList.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effect\PostRenderNode.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effect\GreyScaleFilter.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effect\BlurFilter.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Base\FollowEx.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIGrid.cpp">
+      <Filter>UI\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\CtrlRichText.cpp">
+      <Filter>UI\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\CtrlJoystick.cpp">
+      <Filter>UI\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\Bag.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIState.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIWing.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIList.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIConsign.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerProject\Common\Tool\CSVParser.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerProject\Common\Logic\CSVFileManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIConsign.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIList.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIHttpUpdate.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIWaitting.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerProject\Common\Tool\StackStream.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIItemInfo.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effect\Turntable.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effect\GestureDetector.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UITalk.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIReceiveTask.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\Collect.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIChest.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIChestItem.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UIApplyGang.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\Gang.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\Object.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\MoveComponent.cpp">
+      <Filter>Logic\Compoent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\AnimComponent.cpp">
+      <Filter>Logic\Compoent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logic\BattleComponent.cpp">
+      <Filter>Logic\Compoent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UI\UISkill.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\Base\BaseFunction.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\NPC.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\LogicManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\ResManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\SceneManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\UIManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIMain.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIMsgBox.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\Hero.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\Player.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\Monster.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\TaskManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\AStar.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIFaBao.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIPlayerInfo.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIMenu.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIChat.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIAuction.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIBag.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIEmail.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIFriends.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIGongFa.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIGuild.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UISetting.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIShop.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UITask.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UITeam.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIUpgradeEquip.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\CtrlRichItem.h">
+      <Filter>UI\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIMiniMap.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\NetManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\effect\SpriteWithFilter.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\effect\FilterBase.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\effect\LaserRayFilter.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\ArmatureExPhantom.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Base\ArmatureExtend.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UILogin.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIDefaultServer.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UICreateRole.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\HttpUpdate.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\VersionController.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\RequestServerList.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\PostRenderNode.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\GreyScaleFilter.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\BlurFilter.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Base\FollowEx.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIGrid.h">
+      <Filter>UI\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\CtrlRichText.h">
+      <Filter>UI\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\CtrlJoystick.h">
+      <Filter>UI\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\Bag.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIState.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIWing.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Srv\ClientFile\BasePlayer.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Base\ClientDef.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerProject\Common\Define\GameDef.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerProject\Common\Define\MsgDef.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIList.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIConsign.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerProject\Common\Define\MsgInfo.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerProject\Common\Tool\CSVParser.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerProject\Common\Logic\CSVFileManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIConsign.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIList.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIHttpUpdate.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIWaitting.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerProject\Common\Tool\StackStream.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIItemInfo.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\Turntable.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effect\GestureDetector.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UITalk.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIReceiveTask.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\ChatSystem.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\Collect.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIChest.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIChestItem.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UIApplyGang.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\Gang.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\Object.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\MoveComponent.h">
+      <Filter>Logic\Compoent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\AnimComponent.h">
+      <Filter>Logic\Compoent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logic\BattleComponent.h">
+      <Filter>Logic\Compoent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UI\UISkill.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
