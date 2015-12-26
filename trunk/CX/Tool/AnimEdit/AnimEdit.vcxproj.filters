@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="FrameWork">
+      <UniqueIdentifier>{15af0310-df13-450d-a7bc-352550bdea2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win32++">
+      <UniqueIdentifier>{8eddaae9-c101-4b74-87d6-ceec1b1b79e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{cc9a4161-75b6-4696-be65-447783511838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Attribute">
+      <UniqueIdentifier>{c5b14980-3a0a-4a1d-98f0-dc39010bdc43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Logic">
+      <UniqueIdentifier>{38572553-198d-4a52-ad90-dd56f9d7d1ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\DockerView">
+      <UniqueIdentifier>{acacdcae-c9b3-4954-824c-ff443b03cfb7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EditApp.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorFrame.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorView.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="WMsgMap.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeAttributeView.cpp">
+      <Filter>Src\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAttributeView.cpp">
+      <Filter>Src\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimAttributeView.cpp">
+      <Filter>Src\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimMng.cpp">
+      <Filter>Src\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectHelper.cpp">
+      <Filter>Src\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="RedoAndUndoMng.cpp">
+      <Filter>Src\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeFactory.cpp">
+      <Filter>Src\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="TopologyView.cpp">
+      <Filter>Src\DockerView</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationView.cpp">
+      <Filter>Src\DockerView</Filter>
+    </ClCompile>
+    <ClCompile Include="EditClass.cpp">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EditApp.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorView.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorFrame.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\c_string.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\controls.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\default_resource.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\dialog.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\docking.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\file.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\frame.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\gdi.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\imagelist.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\listview.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\mdi.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\menu.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\menubar.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\propertysheet.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\rebar.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\ribbon.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\rich_edit.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\shared_ptr.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\socket.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\statusbar.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\stdcontrols.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\tab.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\taskdialog.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\toolbar.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\treeview.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\wceframe.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\wcestddef.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\webbrowser.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\wincore.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32++\include\winutils.h">
+      <Filter>win32++</Filter>
+    </ClInclude>
+    <ClInclude Include="WMsgMap.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="RedoAndUndoMng.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimAttributeView.h">
+      <Filter>Src\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeAttributeView.h">
+      <Filter>Src\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAttributeView.h">
+      <Filter>Src\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="TopologyView.h">
+      <Filter>Src\DockerView</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationView.h">
+      <Filter>Src\DockerView</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimMng.h">
+      <Filter>Src\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeFactory.h">
+      <Filter>Src\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectHelper.h">
+      <Filter>Src\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="EditClass.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AnimEdit.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\icon1.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\toolbar.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\SDbottom.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\SDcenter.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\SDleft.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\SDmiddle.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\SDright.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\SDtop.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\SplitH.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\SplitV.cur">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>
