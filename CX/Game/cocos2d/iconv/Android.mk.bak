@@ -1,0 +1,52 @@
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := cocos2dcpp_shared
+
+LOCAL_MODULE_FILENAME := libcocos2dcpp
+
+LOCAL_SRC_FILES := hellocpp/main.cpp \
+                   ../../Classes/AppDelegate.cpp \
+                   ../../Classes\Base\BaseFunction.cpp \
+                    ../../Classes\Base\CSVParser.cpp \
+                   ../../Classes\Manager\CSVFileManager.cpp \
+                    ../../Classes\Manager\GameManager.cpp \
+                    ../../Classes\Manager\NetManager.cpp \
+                    ../../Classes\Manager\ObjectManager.cpp \
+                    ../../Classes\Manager\ResManager.cpp \
+                    ../../Classes\Manager\SceneManager.cpp \
+                    ../../Classes\Manager\UIManager.cpp \
+                   
+
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
+										$(LOCAL_PATH)/../../Classes/Base \
+										$(LOCAL_PATH)/../../Classes/Logic \
+										$(LOCAL_PATH)/../../Classes/Manager \
+										$(LOCAL_PATH)/../../Classes/UI  \
+										$(LOCAL_PATH)/../../cocos2d \
+										$(LOCAL_PATH)/../../cocos2d/cocos/2d/platform \
+										$(LOCAL_PATH)/../../cocos2d/extensions \
+										$(LOCAL_PATH)/../../cocos2d/cocos/editor-support \
+										$(LOCAL_PATH)/../../cocos2d/cocos/editor-support/cocostudio \
+										$(LOCAL_PATH)/../../cocos2d/cocos/ui \
+$(LOCAL_PATH)/../../cocos2d/iconv/include \
+$(LOCAL_PATH)/../../cocos2d/iconv/libcharset \
+$(LOCAL_PATH)/../../cocos2d/iconv/lib \
+$(LOCAL_PATH)/../../cocos2d/iconv/libcharset/include \
+$(LOCAL_PATH)/../../cocos2d/iconv/srclib \
+$(LOCAL_PATH)/../../cocos2d/iconv \
+
+
+LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
+LOCAL_WHOLE_STATIC_LIBRARIES += box2d_static
+LOCAL_WHOLE_STATIC_LIBRARIES += iconv_static
+
+
+include $(BUILD_SHARED_LIBRARY)
+
+$(call import-module,2d)
+$(call import-module,audio/android)
+$(call import-module,Box2D)
+$(call import-module,iconv)
