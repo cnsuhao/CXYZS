@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <gate>
+        <ip>127.0.0.1</ip>
+        <port>11000</port>
+    </gate>
+    <resource>
+        <ip>127.0.0.1</ip>
+        <port>8080</port>
+    </resource>
+</root>
