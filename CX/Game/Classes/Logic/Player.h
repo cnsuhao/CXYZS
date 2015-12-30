@@ -37,7 +37,6 @@ public:
 
 //>外观
     cc2d::Node* CreateFaceCopyNode();
-    static cc2d::Node* CreateFaceCopyNode(int equipId[EQUIPTYPE_MAX], int sex);
     static void EquipIdToFaceId(int equipId[EQUIPTYPE_MAX], int outFaceId[EQUIPTYPE_MAX]);
 	bool ReloadFace(int face[EQUIPTYPE_MAX], bool asyncLoad = true);	    //更新外观
 
@@ -67,6 +66,8 @@ public:
     inline int      GetHp() const;
     virtual void    SetHpMax(int hpMax);
     inline int      GetHpMax() const;
+    virtual void    SetMoveSpeed(float speed);
+    inline float    GetMoveSpeed() const;
 private:    
     void            InitDie();
 public:
@@ -80,6 +81,7 @@ private:
     int m_Hp;                   //hp
     int m_HpMax;                //hp上限
     bool m_IsSkilling;          //>释放技能中
+    float m_moveSpeed;          //>
 };
 
 bool Player::IsSkilling()
@@ -95,6 +97,11 @@ inline int  Player::GetHp() const
 inline int  Player::GetHpMax() const
 {
     return m_HpMax;
+}
+
+inline float Player::GetMoveSpeed() const
+{
+    return m_moveSpeed;
 }
 
 

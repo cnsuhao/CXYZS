@@ -334,7 +334,7 @@ void UIPlayerInfo::OnClickEquipment(UIBag::EquipPart part)
         if (pUIItemInfo)
         {
             vector<UIItemInfo::ButtonOperation> operations;
-            if (g_LogicManager->m_Hero && _detailInfo.guid == g_LogicManager->m_Hero->m_GUID)
+            if (g_LogicManager->m_Hero && g_LogicManager->IsHeroGuid(_detailInfo.guid))
             {
                 MakeOperation(pItem, operations, true);
                 pUIItemInfo->SetupItem(pItem, operations, NULL);
@@ -426,7 +426,7 @@ void UIPlayerInfo::LoadPlayerFace()
                 }
             }
 
-            Node* node = Player::CreateFaceCopyNode(faceId, _detailInfo.sex);
+            Node* node = PlayerAnimComp::CreateFaceCopyNode(faceId, _detailInfo.sex);
             if (node)
             {
                 node->setScale(1.5f);

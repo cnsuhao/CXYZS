@@ -269,6 +269,7 @@ void LogicManager::AddOtherPlayerToMap(MsgOtherRole_BaseInfo* playerInfo)
     {
         player = new Player();
         player->Init(playerInfo->guid, playerInfo->sex, playerInfo->playerName, NULL, playerInfo->hp <= 0);
+        player->SetMoveSpeed(playerInfo->moveSpeed);
         //>添加到列表
         m_PlayerList.push_back(player);
         g_SceneManager->m_MainLayer->m_TileMap->addChild(player);

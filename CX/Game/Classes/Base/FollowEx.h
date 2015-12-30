@@ -6,8 +6,7 @@ author:		lishihai
 desc:	    ½Úµã¸úËæ
 *********************************************************************/
 
-#include "ClientDef.h"
-
+#include "CCNode.h"
 #include "CCAction.h"
 
 class FollowEx : public cc2d::Follow

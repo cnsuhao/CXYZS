@@ -20,9 +20,6 @@ using namespace std;
 //最大传送点数量
 #define CONVEY_NUM_MAX 5
 
-#define cc2d cocos2d
-#define	cc2dui cocos2d::ui
-
 //游戏场景类型
 enum GameScene
 {	

@@ -5,6 +5,7 @@
 #include "ResManager.h"
 #include "LogicManager.h"
 #include "BaseFunction.h"
+#include "Hero.h"
 
 USING_NS_CC;
 using namespace ui;

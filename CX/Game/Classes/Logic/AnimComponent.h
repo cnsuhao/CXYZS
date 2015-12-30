@@ -115,6 +115,8 @@ public:
 public:
     PlayerAnimComp(MapObj* pObject,  Interface* pInterface);
 
+    static cc2d::Node* CreateFaceCopyNode(int equipId[EQUIPTYPE_MAX], int sex);   //>创建一个外观节点
+
     virtual void LoadResouce(bool asyncLoad = true);        //>加载更新
 
     virtual void ChangeAction(ActionType action);			//>改变动作

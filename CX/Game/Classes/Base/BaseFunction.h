@@ -7,7 +7,9 @@ desc:		基础函数类：GB2312和utf8的相互转换接口
 #ifndef __UITOOLS_H__
 #define __UITOOLS_H__
 
-#include "ClientDef.h"
+#include <vector>
+#include "ccMacros.h"
+#include "math/Vec2.h"
 #include "CCPlatformDefine.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include "..\cocos2d\iconv\include\iconv.h"

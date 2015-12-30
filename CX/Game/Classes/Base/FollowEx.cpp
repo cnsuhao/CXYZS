@@ -1,5 +1,4 @@
 #include "FollowEx.h"
-#include "CCNode.h"
 #include "CCDirector.h"
 
 USING_NS_CC;

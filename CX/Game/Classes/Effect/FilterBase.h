@@ -6,7 +6,7 @@ author:		lishihai
 desc:	    滤镜的基类
 *********************************************************************/
 
-#include "ClientDef.h"
+#include "CCNode.h"
 
 // 滤镜的基类.帮助完成shader注册,本身并无效果
 class FilterBase : public cc2d::Ref

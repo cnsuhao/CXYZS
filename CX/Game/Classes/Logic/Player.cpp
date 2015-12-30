@@ -16,10 +16,7 @@ USING_NS_CC;
 #include "MoveComponent.h"
 #include "UIManager.h"
 #include "UIMain.h"
-
-static const int DefaultBodyFace = 1;
-static const int DefaultHorse = 1;
-static const int DefaultWing = 1;
+#include "Hero.h"
 
 Player::Player()
 {
@@ -32,6 +29,7 @@ Player::Player()
     m_HpMax = 0;
 
     m_IsSkilling = false;
+    m_moveSpeed = 1.0f;
 }
 
 Player::~Player()
@@ -71,7 +69,7 @@ bool Player::Init(uint64 guid,int sex, const char* name, int face[EQUIPTYPE_MAX]
 
 	const NameColor *nameColor;
 	//是否是玩家自己
-	if (g_LogicManager->m_Hero->m_GUID == m_GUID)
+	if (g_LogicManager->IsHeroGuid(m_GUID))
 	{
 		nameColor = g_CSVFileManager->GetNameColorByID(1);
 	}
@@ -195,73 +193,7 @@ void Player::Ride(bool ride)
 
 Node* Player::CreateFaceCopyNode()
 {
-    return CreateFaceCopyNode(m_Face, m_Sex);
-}
-
-Node* Player::CreateFaceCopyNode(int equipId[EQUIPTYPE_MAX], int sex)
-{
-    Node* copyNode = Node::create();
-    static char path[64];
-    static string name;
-
-    //>同步创建,可能会卡.
-    if(1)
-    {
-        Sprite* pBody = Sprite::create();
-        copyNode->addChild(pBody);
-        int faceId = equipId[EQUIPTYPE_BODY] != 0 ? equipId[EQUIPTYPE_BODY] : DefaultBodyFace;
-        faceId = equipId[EQUIPTYPE_FASHION] != 0 ? equipId[EQUIPTYPE_FASHION] : faceId;
-        sprintf(path, "player_%d_%d_%d_%d_%d", sex, EQUIPTYPE_BODY, faceId, ACTION_IDLE, DIRECTION_DOWN);
-        name = path;
-        Vector<SpriteFrame*> SpriteFrame = g_ResManager->GetSpriteFrame(name);
-        if (SpriteFrame.empty()){
-            g_ResManager->CreatePlayerPart(StringUtils::format("player_%d_%d_%d", sex, EQUIPTYPE_BODY, faceId)); 
-            SpriteFrame = g_ResManager->GetSpriteFrame(name);
-        }
-        Animation* animation = Animation::createWithSpriteFrames(SpriteFrame, PLAYER_ANIMATION_FRAME_TIME);
-        pBody->runAction(RepeatForever::create( Animate::create(animation)));
-        int zorder = g_CSVFileManager->m_PartLayer[DIRECTION_DOWN][EQUIPTYPE_BODY];
-        pBody->setLocalZOrder(zorder);
-    }
-
-    if (equipId[EQUIPTYPE_WEAPON])
-    {
-        Sprite* pWeapon = Sprite::create();
-        copyNode->addChild(pWeapon);
-        //男女共用武器~统一为男性资源
-        sprintf(path, "player_%d_%d_%d_%d_%d", 1, EQUIPTYPE_WEAPON, equipId[EQUIPTYPE_WEAPON], ACTION_IDLE, DIRECTION_DOWN);
-        name = path;
-        Vector<SpriteFrame*> SpriteFrame = g_ResManager->GetSpriteFrame(name);
-        if (SpriteFrame.empty()){
-            g_ResManager->CreatePlayerPart(StringUtils::format("player_%d_%d_%d", 1, EQUIPTYPE_WEAPON, equipId[EQUIPTYPE_WEAPON]));
-            SpriteFrame = g_ResManager->GetSpriteFrame(name);
-        }
-        Animation* animation = Animation::createWithSpriteFrames(SpriteFrame, PLAYER_ANIMATION_FRAME_TIME);
-        pWeapon->runAction(RepeatForever::create( Animate::create(animation)));
-        int zorder = g_CSVFileManager->m_PartLayer[DIRECTION_DOWN][EQUIPTYPE_WEAPON];
-        pWeapon->setLocalZOrder(zorder);
-    }
-
-    if (1)
-    {
-        Sprite* pWing = Sprite::create();
-        copyNode->addChild(pWing);
-        //男女共用翅膀~统一为男性资源
-        sprintf(path, "player_%d_%d_%d_%d_%d", 1, EQUIPTYPE_WING, equipId[EQUIPTYPE_WING] != 0 ? equipId[EQUIPTYPE_WING] : DefaultWing, ACTION_IDLE, DIRECTION_DOWN);
-        name = path;
-        Vector<SpriteFrame*> SpriteFrame = g_ResManager->GetSpriteFrame(name);
-        if (SpriteFrame.empty()){
-            g_ResManager->CreatePlayerPart(StringUtils::format("player_%d_%d_%d", 1, EQUIPTYPE_WING, equipId[EQUIPTYPE_WING]));
-            SpriteFrame = g_ResManager->GetSpriteFrame(name);
-        }
-        Animation* animation = Animation::createWithSpriteFrames(SpriteFrame, PLAYER_ANIMATION_FRAME_TIME);
-        pWing->runAction(RepeatForever::create( Animate::create(animation)));
-        int zorder = g_CSVFileManager->m_PartLayer[DIRECTION_DOWN][EQUIPTYPE_WING];
-        pWing->setLocalZOrder(zorder);
-    }
-
-    CCASSERT(copyNode->getChildrenCount() > 0, "");
-    return copyNode;
+    return PlayerAnimComp::CreateFaceCopyNode(m_Face, m_Sex);
 }
 
 void Player::EquipIdToFaceId(int equipId[EQUIPTYPE_MAX], int faceId[EQUIPTYPE_MAX])
@@ -304,7 +236,7 @@ bool Player::ReloadFace(int face[EQUIPTYPE_MAX], bool asyncLoad/* = true*/)
 
 float Player::AC_GetMoveSpeed()
 {
-    return 1.0f;
+    return m_moveSpeed;
 }
 
 void Player::GetFaces(int face[EQUIPTYPE_MAX])
@@ -333,7 +265,7 @@ void Player::OnAttcakAnimEnd()
 
 float Player::MC_GetMoveSpeed()
 {
-    return 1.0f;
+    return m_moveSpeed;
 }
 
 void Player::OnChangeDirection(DirectionType direction)
@@ -368,7 +300,7 @@ void Player::OnMoveEnd()
     }
 }
 
-inline void Player::SetHp(int hp)
+void Player::SetHp(int hp)
 {
     m_Hp = hp;    
     if (m_AnimCompoenet)
@@ -380,13 +312,24 @@ inline void Player::SetHp(int hp)
     if (m_Hp <= 0 && !IsDead())
         Die();
 }
-inline void Player::SetHpMax(int hpMax)
+
+void Player::SetHpMax(int hpMax)
 {
     m_HpMax = hpMax;
     if (m_AnimCompoenet)
     {
         float percent = m_Hp * 100.0f / m_HpMax;
         m_AnimCompoenet->SetHpBarPercent(percent);
+    }
+}
+
+
+void Player::SetMoveSpeed( float speed )
+{
+    CCASSERT(speed > 0.f, "");
+    if (m_moveSpeed != speed)
+    {
+        m_moveSpeed = speed;
     }
 }
 

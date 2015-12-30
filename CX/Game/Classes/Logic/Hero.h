@@ -59,14 +59,14 @@ public:
     void StopMove();
 
 	//属性相关
-	void SetProperty(AttributeType property, float value);		//设置属性	
+	void SetAttribute(AttributeType property, float value);		//设置属性	
 	float m_Attribute[ATTRIBUTE_MAX];		//属性
 	int64 m_OfflineTime;                //离线时间，用于上线时判断是否刷新每日次数
 	int32 m_activeSkillType;		    //激活的技能类型
 
 
 	void LoadBaseAttribute(BaseInfoIt& baseInfo);   //>加载基础属性
-	void LoadDetailAttribute(DetailAttribute& otherInfo);
+	//void LoadDetailAttribute(AttributeType type, float attributeValue);
 
     bool IsIdleActionType() { return false; }
     bool IsMoveActionType() { return false; }
