@@ -220,9 +220,6 @@ int NetManager::OnRecv(RakNet::Packet* pData)
 		case Msg_Role_BaseInfo:
             OnPlayerBaseInfo(msg);
             break;
-		case Msg_Role_DetailAttribute:
-			OnPlayerDetailAttribute(msg);
-			break;
         case Msg_OtherRole_BaseInfo:
             OnOtherPlayerEnterView(msg);
             break;
@@ -238,7 +235,7 @@ int NetManager::OnRecv(RakNet::Packet* pData)
         case Msg_Object_Move_Stop:
             OnObjectMoveStop(msg);
             break;
-		case Msg_Object_SyncAttribute:
+		case Msg_Object_Attribute:
 			OnObjectSyncAttribute(msg);
 			break;
         case Msg_Object_AddHp:
@@ -568,12 +565,6 @@ void NetManager::OnPlayerBaseInfo(MsgBase* msg)
     }
 }
 
-void NetManager::OnPlayerDetailAttribute(MsgBase* msg)
-{
-	MsgRole_DetailAttribute* temp = (MsgRole_DetailAttribute*)msg;
-	g_LogicManager->m_Hero->LoadDetailAttribute(temp->Attribute);
-}
-
 void NetManager::OnPlayerOtherDetailInfo(MsgBase* msg)
 {
     MsgOtherRole_DetailInfo* detail = (MsgOtherRole_DetailInfo*)msg;
@@ -709,59 +700,30 @@ void NetManager::OnOtherPlayerLeaveView(MsgBase* msg)
 
 void NetManager::OnObjectSyncAttribute(MsgBase* msg)
 {
-    MsgObject_SyncAttribute* pSyncAttr = (MsgObject_SyncAttribute*)msg;
-
-    if (g_LogicManager->m_Hero->m_GUID == pSyncAttr->OwnerID)
+    MsgObject_Attribute* pSyncAttr = (MsgObject_Attribute*)msg;
+    if (pSyncAttr->OwnerType == OBJECT_PLAYER)
     {
-		//!还需处理为何改变属性
-		g_LogicManager->m_Hero->SetProperty(pSyncAttr->Property,	pSyncAttr->Value);
-
-        //>设置界面
-        if (pSyncAttr->Property == ATTRIBUTE_MONEY || 
-            pSyncAttr->Property == ATTRIBUTE_GOLD || 
-            pSyncAttr->Property == ATTRIBUTE_BINDGOLD || 
-            pSyncAttr->Property == ATTRIBUTE_ARENAMONEY ||
-            pSyncAttr->Property == ATTRIBUTE_BATTLEFIELDMONEY )
+        if (g_LogicManager->m_Hero->m_GUID == pSyncAttr->OwnerID)
         {
-            if (g_UIManager->IsOpened(UI_BAG))
-            {
-                UIBag* uiBag = static_cast<UIBag*>(g_UIManager->GetUI(UI_BAG));
-                if (uiBag)
-                {
-                    uiBag->ReloadHeroMoney();
-                }
-            }
+            //!还需处理为何改变属性
+            g_LogicManager->m_Hero->SetAttribute(pSyncAttr->Property, pSyncAttr->Value);
 
-            if (g_UIManager->IsOpened(UI_EQUIP_UPGRADE))
-            {
-                UIUpgradeEquip* uiUpgread = static_cast<UIUpgradeEquip*>(g_UIManager->GetUI(UI_EQUIP_UPGRADE));
-                if (uiUpgread)
-                {
-                    uiUpgread->ReloadHeroMoney();
-                }
-            }
-
-            if (g_UIManager->IsOpened(UI_SHOP))
-            {
-                UIShop* uiShop = static_cast<UIShop*>(g_UIManager->GetUI(UI_SHOP));
-                if (uiShop)
-                {
-                    uiShop->SetMoneyType(pSyncAttr->Property, g_LogicManager->m_Hero->m_Attribute[pSyncAttr->Property]);
-                }
-            }
-        }
-
-	}else
-    {
-        Player* player = g_LogicManager->GetPlayerByGUID(pSyncAttr->OwnerID);
-        if (player)
+        }else
         {
-            if (pSyncAttr->Property == ATTRIBUTE_HP)
+            Player* player = g_LogicManager->GetPlayerByGUID(pSyncAttr->OwnerID);
+            if (player)
             {
-                player->SetHp((int)pSyncAttr->Value);
+                if (pSyncAttr->Property == ATTRIBUTE_HP)
+                {
+                    player->SetHp((int)pSyncAttr->Value);
+                }
             }
         }
     }
+    else if (pSyncAttr->OwnerType == OBJECT_MONSTER)
+    {
+
+    }   
 }
 
 void NetManager::OnObjectAddHp(MsgBase* msg)
@@ -776,7 +738,7 @@ void NetManager::OnObjectAddHp(MsgBase* msg)
                 g_LogicManager->m_Hero->Idle();
             }
 
-            g_LogicManager->m_Hero->SetProperty(ATTRIBUTE_HP, addHpMsg->LastHp);
+            g_LogicManager->m_Hero->SetAttribute(ATTRIBUTE_HP, addHpMsg->LastHp);
         }
         else
         {
@@ -810,7 +772,7 @@ void NetManager::OnObjectDropHp(MsgBase* msg)
     {
         if (dropHpMsg->OwnerID == g_LogicManager->m_Hero->m_GUID)
         {
-            g_LogicManager->m_Hero->SetProperty(ATTRIBUTE_HP, dropHpMsg->LastHp);
+            g_LogicManager->m_Hero->SetAttribute(ATTRIBUTE_HP, dropHpMsg->LastHp);
         
             g_LogicManager->m_Hero->m_AnimCompoenet->PlayDropHpAnim(dropHpMsg->Mode);
         }

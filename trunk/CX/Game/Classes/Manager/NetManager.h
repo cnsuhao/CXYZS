@@ -76,7 +76,6 @@ public:
 	void OnPlayerReliveData(MsgBase* msg);		//服务器通知客户端原地复活所需要的信息
 	void OnPlayerRelive(MsgBase* msg);			//玩家复活
     void OnPlayerChangeEquipment(MsgBase* msg); //装备改变
-	void OnPlayerDetailAttribute(MsgBase* msg);	//玩家其他基础信息（如攻击力等）
     void OnPlayerOtherDetailInfo(MsgBase* msg); //其他玩家的详细信息
 
     void OnAddItem(MsgBase* msg);               //添加物品

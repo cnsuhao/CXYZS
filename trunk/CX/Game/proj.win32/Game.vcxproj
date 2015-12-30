@@ -74,7 +74,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(EngineRoot);$(EngineRoot)cocos;$(EngineRoot)cocos\base;$(EngineRoot)cocos\ui;$(EngineRoot)cocos\2d;$(EngineRoot)cocos\platform;$(EngineRoot)cocos\renderer;$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\json;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)external\win32-specific\icon\include;$(EngineRoot)extensions;$(EngineRoot)cocos\editor-support;$(EngineRoot)cocos\editor-support\cocostudio;$(EngineRoot)cocos\network;..\Classes;..\Classes\Base;..\Classes\Logic;..\Classes\Manager;..\Classes\Net;..\Classes\UI;..\Classes\CommonAPI;..\Classes\effect;..\..\ServerProject\Common\Define;..\..\ServerProject\Common\Logic;..\..\ServerProject\Common\Tool;..\..\ServerProject\RakNet;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_BOX2D_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_BOX2D_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;cc2d=cocos2d;cc2dui=cocos2d::ui;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>

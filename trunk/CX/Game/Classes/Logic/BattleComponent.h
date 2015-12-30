@@ -10,15 +10,6 @@ desc:		’Ω∂∑¿‡
 #include "ClientDef.h"
 #include "math/Vec2.h"
 
-namespace cc2d
-{
-    class Sprite;
-    namespace ui
-    {
-        class LoadingBar;
-    }
-}
-
 class MapObj;
 class BattleComponent
 {
@@ -45,7 +36,7 @@ public:
         const struct BuffInfo* pBuffInfo;
         mutable void* pUserData;
 
-        BuffData& operator =(BuffData& other)
+        BuffData& operator =(const BuffData& other)
         {
             buffId = other.buffId;
             instanceId = other.instanceId;

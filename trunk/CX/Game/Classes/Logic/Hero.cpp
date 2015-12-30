@@ -6,8 +6,13 @@ USING_NS_CC;
 #include "CCArmatureDataManager.h"
 #include "CCArmature.h"
 #include "SceneManager.h"
+
 #include "UIManager.h"
 #include "UIMain.h"
+#include "UIBag.h"
+#include "UIUpgradeEquip.h"
+#include "UIShop.h"
+
 #include "ResManager.h"
 #include "SceneManager.h"
 #include "BaseFunction.h"
@@ -263,100 +268,133 @@ void Hero::StopMove()
     g_NetManager->SendMsg(send);	
 }
 
-void Hero::SetProperty(AttributeType property, float value)
+void Hero::SetAttribute(AttributeType type, float value)
 {
-	m_Attribute[property] = value;
-	switch (property)
-	{
-	case ATTRIBUTE_MONEY:
-		break;
-	case ATTRIBUTE_GOLD:
-		break;
-	case ATTRIBUTE_HP:
-		{
-			if (m_Attribute[ATTRIBUTE_HP] <= 0.0f)
-			{
-				m_Attribute[ATTRIBUTE_HP] = 0.0f;
+	m_Attribute[type] = value;
+
+
+    switch (type)
+    {
+    case ATTRIBUTE_MONEY:
+        break;
+    case ATTRIBUTE_GOLD:
+        break;
+    case ATTRIBUTE_HP:
+        {
+            if (m_Attribute[ATTRIBUTE_HP] <= 0.0f)
+            {
+                m_Attribute[ATTRIBUTE_HP] = 0.0f;
                 Die();
-			}
-			else if (m_Attribute[ATTRIBUTE_HP] > m_Attribute[ATTRIBUTE_HPMAX])
-			{
-				m_Attribute[ATTRIBUTE_HP] = m_Attribute[ATTRIBUTE_HPMAX];
-			}
-			if (g_UIManager->GetUI(UI_MAIN))
-			{
-				((UIMain*)g_UIManager->GetUI(UI_MAIN))->ChangeHero();
-			}
+            }
+            else if (m_Attribute[ATTRIBUTE_HP] > m_Attribute[ATTRIBUTE_HPMAX])
+            {
+                m_Attribute[ATTRIBUTE_HP] = m_Attribute[ATTRIBUTE_HPMAX];
+            }
+
             if (m_AnimCompoenet)
             {
                 float percent = m_Attribute[ATTRIBUTE_HP] * 100.0f / m_Attribute[ATTRIBUTE_HPMAX];
                 m_AnimCompoenet->SetHpBarPercent(percent);
             }
-		}
-		break;
-	case ATTRIBUTE_MP:
-		{
+        }
+        break;
+    case ATTRIBUTE_MP:
+        break;
+    case ATTRIBUTE_BINDGOLD:
+        break;
+    case ATTRIBUTE_ARENAMONEY:
+        break;
+    case ATTRIBUTE_BATTLEFIELDMONEY:
+        break;
+    case ATTRIBUTE_XPMAX:
+        {
             if (g_UIManager->GetUI(UI_MAIN))
             {
                 ((UIMain*)g_UIManager->GetUI(UI_MAIN))->ChangeHero();
             }
-		}
-		break;
-	case ATTRIBUTE_BINDGOLD:
-		break;
-	case ATTRIBUTE_ARENAMONEY:
-		break;
-	case ATTRIBUTE_BATTLEFIELDMONEY:
-		break;
-	case ATTRIBUTE_XPMAX:
-		{
+        }
+        break;
+    case ATTRIBUTE_XP:
+        {
             if (g_UIManager->GetUI(UI_MAIN))
             {
                 ((UIMain*)g_UIManager->GetUI(UI_MAIN))->ChangeHero();
             }
-		}
-		break;
-	case ATTRIBUTE_XP:
-		{
-            if (g_UIManager->GetUI(UI_MAIN))
-            {
-                ((UIMain*)g_UIManager->GetUI(UI_MAIN))->ChangeHero();
-            }
-		}
-		break;
-	case ATTRIBUTE_LEVEL:
-		{
-			//m_Level = value;
-			//播放特效，更新ui
-			g_ResManager->ShowSprite(3, g_SceneManager->m_MainLayer, LAYER_EFFECT, g_ScreenHalfSize);
-            if (g_UIManager->GetUI(UI_MAIN))
-            {
-			    ((UIMain*)g_UIManager->GetUI(UI_MAIN))->ChangeHero();
-            }
-		}
-		break;
-	case ATTRIBUTE_EXP:
-		{			
-            if (g_UIManager->GetUI(UI_MAIN))
-            {
-                ((UIMain*)g_UIManager->GetUI(UI_MAIN))->ChangeHero();
-            }
-		}
-		break;
-	case ATTRIBUTE_REALMLEVEL:
-		{
-			
-			
-		}
-		break;	
-	case ATTRIBUTE_REALMEXP:
-		{
+        }
+        break;
+    case ATTRIBUTE_LEVEL:
+        {
+            //>播放升级特效，更新ui
+            g_ResManager->ShowSprite(3, g_SceneManager->m_MainLayer, LAYER_EFFECT, g_ScreenHalfSize);
+        }
+        break;
+    case ATTRIBUTE_EXP:
+        {
+        }
+        break;
+    case ATTRIBUTE_REALMLEVEL:
+        {
 
-		}
-		break;
-	default:
-		break;
-	}
+
+        }
+        break;	
+    case ATTRIBUTE_REALMEXP:
+        {
+
+        }
+        break;
+    default:
+        break;
+    }
+
+
+    //>如果是血,蓝,等级更新主UI
+    if (type == ATTRIBUTE_HP || 
+        type == ATTRIBUTE_MP ||
+        type == ATTRIBUTE_HPMAX ||
+        type == ATTRIBUTE_MPMAX || 
+        type == ATTRIBUTE_LEVEL)
+    {
+        if (g_UIManager->GetUI(UI_MAIN))
+        {
+            ((UIMain*)g_UIManager->GetUI(UI_MAIN))->ChangeHero();
+        }
+    }
+
+    //>如果是金币类,更新界面
+    if (type == ATTRIBUTE_MONEY || 
+        type == ATTRIBUTE_GOLD || 
+        type == ATTRIBUTE_BINDGOLD || 
+        type == ATTRIBUTE_ARENAMONEY ||
+        type == ATTRIBUTE_BATTLEFIELDMONEY )
+    {
+        if (g_UIManager->IsOpened(UI_BAG))
+        {
+            UIBag* uiBag = static_cast<UIBag*>(g_UIManager->GetUI(UI_BAG));
+            if (uiBag)
+            {
+                uiBag->ReloadHeroMoney();
+            }
+        }
+
+        if (g_UIManager->IsOpened(UI_EQUIP_UPGRADE))
+        {
+            UIUpgradeEquip* uiUpgread = static_cast<UIUpgradeEquip*>(g_UIManager->GetUI(UI_EQUIP_UPGRADE));
+            if (uiUpgread)
+            {
+                uiUpgread->ReloadHeroMoney();
+            }
+        }
+
+        if (g_UIManager->IsOpened(UI_SHOP))
+        {
+            UIShop* uiShop = static_cast<UIShop*>(g_UIManager->GetUI(UI_SHOP));
+            if (uiShop)
+            {
+                uiShop->SetMoneyType(type, g_LogicManager->m_Hero->m_Attribute[type]);
+            }
+        }
+    }
 }
 
 
@@ -653,21 +691,23 @@ void Hero::LoadBaseAttribute(BaseInfoIt& baseInfo)
 	m_OfflineTime = baseInfo.offlineTime;
 	m_activeSkillType = baseInfo.activeSkillType;
 	m_isocietyID = baseInfo.societyID;
+
+    m_Attribute[ATTRIBUTE_MOVESPEED_FACTOR] = baseInfo.moveSpeed;
 }
 
-void Hero::LoadDetailAttribute(DetailAttribute& otherInfo)
-{
-	m_Attribute[ATTRIBUTE_HPMAX] = otherInfo.hpMax;
-	m_Attribute[ATTRIBUTE_MPMAX] = otherInfo.mpMax;
-	m_Attribute[ATTRIBUTE_ATTACK] = otherInfo.attack;
-	m_Attribute[ATTRIBUTE_DEFENSE] = otherInfo.defense;
-	m_Attribute[ATTRIBUTE_HIT] = otherInfo.hit;
-	m_Attribute[ATTRIBUTE_DODGE] = otherInfo.dodge;
-	m_Attribute[ATTRIBUTE_CRIT] = otherInfo.crit;
-    m_Attribute[ATTRIBUTE_TENACITY] = otherInfo.tenacity;
-    m_Attribute[ATTRIBUTE_MOVESPEED_FACTOR] = otherInfo.moveSpeedFactor;
-	m_BattlePower = otherInfo.battlePower;
-}
+//void Hero::LoadDetailAttribute(AttributeType type, float attributeValue)
+//{
+//    m_Attribute[ATTRIBUTE_HPMAX] = otherInfo.hpMax;
+//    m_Attribute[ATTRIBUTE_MPMAX] = otherInfo.mpMax;
+//    m_Attribute[ATTRIBUTE_ATTACK] = otherInfo.attack;
+//    m_Attribute[ATTRIBUTE_DEFENSE] = otherInfo.defense;
+//    m_Attribute[ATTRIBUTE_HIT] = otherInfo.hit;
+//    m_Attribute[ATTRIBUTE_DODGE] = otherInfo.dodge;
+//    m_Attribute[ATTRIBUTE_CRIT] = otherInfo.crit;
+//    m_Attribute[ATTRIBUTE_TENACITY] = otherInfo.tenacity;
+//    m_Attribute[ATTRIBUTE_MOVESPEED_FACTOR] = otherInfo.moveSpeedFactor;
+//    m_BattlePower = otherInfo.battlePower;
+//}
 
 //根据taskid取得任务状态信息
 TaskInfoIt* Hero::GetTaskInfoItByID(int32 id)

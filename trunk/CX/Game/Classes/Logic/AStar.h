@@ -5,7 +5,7 @@
 #include <list>
 #include <vector>
 
-#include "ClientDef.h"
+#include "math/Vec2.h"
 
 using namespace std;
 #define MAX_MAPCELL_X 512
